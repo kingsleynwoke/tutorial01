@@ -42,3 +42,37 @@ def take_input(func):
         print("Start2")
     print("New2")
     return user_choice
+
+
+def take_input2(func):
+    def user_choice(a=4, b=4):
+        #print("I am going to divide", a, "and", b)
+        #a, b = input("Choose two numbers a and b: ").split()
+        return func(int(a), int(b))
+    return user_choice
+
+
+# multiply = take_input2(multiply)
+# multiply()
+@take_input2
+def multiply(a, b):
+    return a*b
+
+@take_input2
+def add(a, b):
+    return a+b
+
+@take_input2
+def sub(a, b):
+    return a-b
+
+@take_input2
+def divide(a, b):
+    try:
+        return a/b
+    except:
+        return "Division by zero not possible"
+    
+print(multiply())
+print(add())
+print(divide(2,3))
